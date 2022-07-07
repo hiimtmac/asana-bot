@@ -121,9 +121,6 @@
 # Remove get {} in getter-only computed properties
 --rules redundantGet
 
-# Remove unneeded explicit .init in constructor expressions
---rules redundantInit
-
 # Remove let/var from _ = expressions
 --rules redundantLet
 
