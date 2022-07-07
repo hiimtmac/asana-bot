@@ -1,6 +1,6 @@
 # AsanaBot
 
-Command line app for github/asana/slack integration
+Command line app for GitHub/Asana/Slack integration
 
 ### Stack
 
@@ -16,22 +16,22 @@ Cutting a release on GitHub will trigger a new docker build and upload to ghcr.i
 
 ##### PR create/update
 
-- Capture asana tasks in triggering PR body by regex
-- Search for section in asana called 'In Progress'
+- Capture Asana tasks in triggering PR body by regex
+- Search for section in Asana called 'In Progress'
 - If section found, move task to section
 
 ##### PR ready for review/review requested
 
-- Capture asana tasks in triggering PR body by regex
-- Search for section in asana called 'Ready for Review'
+- Capture Asana tasks in triggering PR body by regex
+- Search for section in Asana called 'Ready for Review'
 - If section found, move task to section
 
 ##### PR Merged
 
-- Capture asana tasks in triggering PR body by regex
-- Search for section in asana called 'Merged'
+- Capture Asana tasks in triggering PR body by regex
+- Search for section in Asana called 'Merged'
 - If section found, move task to section
-- Notify slack with markdown block of PR body
+- Notify Slack with markdown block of PR body
 
 ### Notes
 
@@ -41,8 +41,8 @@ Cutting a release on GitHub will trigger a new docker build and upload to ghcr.i
 
 ### TODO
 
-- [ ] Implement Oauth for asana instead of using PAT
-- [ ] New swift regex builder when 5.7 is released
+- [ ] Implement Oauth for Asana instead of using PAT
+- [ ] New Swift regex builder when 5.7 is released
 - [ ] New date formatters when 5.7 is released
 - [ ] Switch formatter to `swift-format` from `swiftformat`
 - [ ] Change section fetching to batch
