@@ -2,11 +2,15 @@
 
 Command line app for github/asana/slack integration
 
-## Stack
+### Stack
 
 - command line app written in Swift
 - packaged using Docker for actions container runtime
 - triggered using Github Actions on PR ([see example](./.github/workflows/move-tag.yml))
+
+##### Packaging
+
+Cutting a release on GitHub will trigger a new docker build and upload to ghcr.io with appropriate tags. Manual build/push can be done with `docker build -t hiimtmac/asana-bot --push .` but GitHub actions needs to run on amd64 based images. If the build is done via GitHub actions that is fine, if you have an arm64 based machine you will need to run `docker buildx build --platform linux/amd64 -t hiimtmac/asana-bot --push .` or use the provided `build.sh` script.
 
 ### Flows
 
