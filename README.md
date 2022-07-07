@@ -45,3 +45,4 @@ Cutting a release on GitHub will trigger a new docker build and upload to ghcr.i
 - [ ] New swift regex builder when 5.7 is released
 - [ ] New date formatters when 5.7 is released
 - [ ] Switch formatter to `swift-format` from `swiftformat`
+- [ ] Change section fetching to batch
