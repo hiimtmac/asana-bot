@@ -1,0 +1,32 @@
+name: Move Tasks
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - ready_for_review
+      - review_requested
+      - closed
+    branches:
+      - main
+
+jobs:
+  move:
+    name: Move Tasks
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/hiimtmac/asana-bot
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Move to In Progress
+        if: ${{ github.event.action == 'opened' || github.event.action == 'edited' }}
+        run: asana-bot move-tasks ${{ secrets.GITHUB_TOKEN }} ${{ secrets.ASANA_TOKEN }} ${{ github.repository }} ${{ github.event.pull_request.number }} "In Progress"
+      - name: Move to Ready for Review
+        if: ${{ github.event.action == 'ready_for_review' || github.event.action == 'review_requested' }}
+        run: asana-bot move-tasks ${{ secrets.GITHUB_TOKEN }} ${{ secrets.ASANA_TOKEN }} ${{ github.repository }} ${{ github.event.pull_request.number }} "Ready for Review"
+      - name: Move to Merged
+        if: ${{ github.event.action == 'closed' && github.event.pull_request.merged == true }}
+        run: asana-bot move-tasks ${{ secrets.GITHUB_TOKEN }} ${{ secrets.ASANA_TOKEN }} ${{ github.repository }} ${{ github.event.pull_request.number }} "Merged" --slack-webhook=${{ secrets.SLACK_WEBHOOK }}
