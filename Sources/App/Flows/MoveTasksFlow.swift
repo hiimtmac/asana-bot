@@ -84,7 +84,7 @@ public struct MoveTasksFlow {
 
     static let formatter: DateFormatter = {
         let f = DateFormatter()
-        f.dateFormat = "YYYY-MM-DD hh:mm"
+        f.dateFormat = "yyyy-MM-dd hh:mm"
         return f
     }()
 }
